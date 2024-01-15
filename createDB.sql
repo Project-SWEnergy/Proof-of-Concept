@@ -1,4 +1,8 @@
 -- Adminer 4.8.1 PostgreSQL 16.1 (Debian 16.1-1.pgdg120+1) dump
+CREATE TYPE "allergene_enum" AS ENUM('glutine', 'crostacei', 'uova', 'pesce', 'arachidi', 'soia', 'latte', 'frutta a guscio', 'sedano', 'senape', 'sesamo', 'lupini', 'molluschi');
+CREATE TYPE "giorno_enum" AS ENUM('lunedì', 'martedì', 'mercoledì', 'giovedì', 'venerdì', 'sabato', 'domenica');
+CREATE TYPE "prize_enum" AS ENUM('economico', 'medio', 'costoso');
+CREATE TYPE "stato_ordine_enum" AS ENUM('Da confermare', 'Rifiutato', 'Annullato', 'In attesa', 'In corso', 'Concluso');
 
 DROP TABLE IF EXISTS "allergene";
 CREATE TABLE "public"."allergene" (
