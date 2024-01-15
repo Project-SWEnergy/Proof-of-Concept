@@ -12,6 +12,7 @@ CREATE TABLE "public"."allergene" (
     CONSTRAINT "allergene_id_ingrediente_allergene_pk" PRIMARY KEY ("id_ingrediente", "allergene")
 ) WITH (oids = false);
 
+TRUNCATE "allergene";
 
 DROP TABLE IF EXISTS "allergia";
 CREATE TABLE "public"."allergia" (
@@ -19,6 +20,7 @@ CREATE TABLE "public"."allergia" (
     "allergene" allergene_enum NOT NULL
 ) WITH (oids = false);
 
+TRUNCATE "allergia";
 
 DROP TABLE IF EXISTS "citta";
 DROP SEQUENCE IF EXISTS citta_id_seq;
@@ -30,6 +32,7 @@ CREATE TABLE "public"."citta" (
     CONSTRAINT "citta_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "citta";
 INSERT INTO "citta" ("id", "nome") VALUES
 (1,	'Padova');
 
@@ -39,6 +42,7 @@ CREATE TABLE "public"."composizione" (
     "id_ingrediente" integer NOT NULL
 ) WITH (oids = false);
 
+TRUNCATE "composizione";
 
 DROP TABLE IF EXISTS "cucina";
 CREATE TABLE "public"."cucina" (
@@ -46,6 +50,7 @@ CREATE TABLE "public"."cucina" (
     "id_ristorante" integer NOT NULL
 ) WITH (oids = false);
 
+TRUNCATE "cucina";
 
 DROP TABLE IF EXISTS "ingrediente";
 DROP SEQUENCE IF EXISTS ingrediente_id_seq;
@@ -59,6 +64,7 @@ CREATE TABLE "public"."ingrediente" (
     CONSTRAINT "ingrediente_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "ingrediente";
 
 DROP TABLE IF EXISTS "orario";
 CREATE TABLE "public"."orario" (
@@ -68,6 +74,7 @@ CREATE TABLE "public"."orario" (
     "chiusura" time without time zone NOT NULL
 ) WITH (oids = false);
 
+TRUNCATE "orario";
 
 DROP TABLE IF EXISTS "ordinazione";
 CREATE TABLE "public"."ordinazione" (
@@ -78,6 +85,7 @@ CREATE TABLE "public"."ordinazione" (
     CONSTRAINT "ordinazione_id_utente_id_prenotazione_id_piatto_pk" PRIMARY KEY ("id_utente", "id_prenotazione", "id_piatto")
 ) WITH (oids = false);
 
+TRUNCATE "ordinazione";
 INSERT INTO "ordinazione" ("id_prenotazione", "id_utente", "id_piatto", "quantita") VALUES
 (4,	1,	6,	1),
 (4,	1,	9,	1),
@@ -100,6 +108,7 @@ CREATE TABLE "public"."piatto" (
     CONSTRAINT "piatto_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "piatto";
 INSERT INTO "piatto" ("id", "nome", "descrizione", "prezzo", "foto", "id_ristorante") VALUES
 (6,	'Pizza',	'Pizza with tomato and cheese',	5,	'{}',	2),
 (7,	'Hamburger',	'Hamburger with cheese and bacon',	4,	'{"url": "https://www.my-personaltrainer.it/2020/09/07/hamburger_900x760.jpeg"}',	2),
@@ -122,6 +131,7 @@ CREATE TABLE "public"."prenotazione" (
     CONSTRAINT "prenotazione_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "prenotazione";
 INSERT INTO "prenotazione" ("id", "id_ristorante", "data_e_ora", "numero_persone", "stato", "bimbi", "disabili") VALUES
 (1,	2,	'2024-01-11 10:43:42.999',	0,	'Da confermare',	0,	'f'),
 (2,	2,	'2024-01-11 10:44:58.777',	4,	'Da confermare',	0,	'f'),
@@ -135,6 +145,7 @@ CREATE TABLE "public"."prenotazione_utente" (
     "id_prenotazione" integer NOT NULL
 ) WITH (oids = false);
 
+TRUNCATE "prenotazione_utente";
 INSERT INTO "prenotazione_utente" ("id_utente", "id_prenotazione") VALUES
 (1,	1),
 (1,	2),
@@ -158,8 +169,10 @@ CREATE TABLE "public"."ristorante" (
     CONSTRAINT "ristorante_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "ristorante";
 INSERT INTO "ristorante" ("id", "nome", "citta", "indirizzo", "foto", "telefono", "website", "sedie_per_bambini", "adatto_ai_disabili", "descrizione") VALUES
-(2,	'Ristorante Uno',	1,	'Via Example 1',	'{"url": "https://img.freepik.com/premium-photo/example-restaurants-interior_872147-839.jpg"}',	'1234567890',	'http://ristoranteuno.com',	't',	'f',	'Un ristorante accogliente con cucina italiana.');
+(2,	'Ristorante Uno',	1,	'Via Example 1',	'{"url": "https://img.freepik.com/premium-photo/example-restaurants-interior_872147-839.jpg"}',	'1234567890',	'http://ristoranteuno.com',	't',	'f',	'Un ristorante accogliente con cucina italiana.'),
+(3,	'Ristorante Due',	1,	'Via Example 2',	'{"url": "https://img.freepik.com/premium-photo/example-restaurants-interior_872147-839.jpg"}',	'1234567890',	'http://ristoranteuno.com',	't',	'f',	'Un ristorante accogliente con cucina italiana.');
 
 DROP TABLE IF EXISTS "tag";
 DROP SEQUENCE IF EXISTS tag_id_seq;
@@ -172,10 +185,11 @@ CREATE TABLE "public"."tag" (
     CONSTRAINT "tag_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "tag";
 
 DROP TABLE IF EXISTS "utente";
 DROP SEQUENCE IF EXISTS utente_id_seq;
-CREATE SEQUENCE utente_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 CACHE 1;
+CREATE SEQUENCE utente_id_seq INCREMENT 1 MINVALUE 1 MAXVALUE 2147483647 START 3 CACHE 1;
 
 CREATE TABLE "public"."utente" (
     "id" integer DEFAULT nextval('utente_id_seq') NOT NULL,
@@ -186,9 +200,11 @@ CREATE TABLE "public"."utente" (
     CONSTRAINT "utente_pkey" PRIMARY KEY ("id")
 ) WITH (oids = false);
 
+TRUNCATE "utente";
 INSERT INTO "utente" ("id", "email", "username", "password") VALUES
 (1,	'cliente',	'cliente',	'cliente'),
-(2,	'ristoratore',	'ristoratore',	'ristoratore');
+(2,	'ristoratore',	'ristoratore',	'ristoratore'),
+(3,	'ristoratore2',	'ristoratore2',	'ristoratore2');
 
 ALTER TABLE ONLY "public"."allergene" ADD CONSTRAINT "allergene_id_ingrediente_ingrediente_id_fk" FOREIGN KEY (id_ingrediente) REFERENCES ingrediente(id) NOT DEFERRABLE;
 
@@ -215,5 +231,3 @@ ALTER TABLE ONLY "public"."prenotazione_utente" ADD CONSTRAINT "prenotazione_ute
 
 ALTER TABLE ONLY "public"."ristorante" ADD CONSTRAINT "ristorante_citta_citta_id_fk" FOREIGN KEY (citta) REFERENCES citta(id) NOT DEFERRABLE;
 ALTER TABLE ONLY "public"."ristorante" ADD CONSTRAINT "ristorante_id_utente_id_fk" FOREIGN KEY (id) REFERENCES utente(id) NOT DEFERRABLE;
-
--- 2024-01-11 17:56:08.098291+00
