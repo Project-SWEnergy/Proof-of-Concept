@@ -1,0 +1,19 @@
+<section class="result">
+    @for (dish of DishList; track $index) {
+
+    <mat-card class="example-card">
+        <mat-card-header>
+            <mat-card-title-group style="display: flex; align-items: flex-start;">
+                <img mat-card-sm-image [src]="dish.image">
+                <mat-card-title>{{dish.name}}</mat-card-title>
+                <!---<mat-card-subtitle>Tags</mat-card-subtitle>-->
+            </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content class="content">
+            <button mat-mini-fab color="accent" (click)="removeFromCart(dish)"><mat-icon>remove icon</mat-icon></button>
+            {{dish.description}}
+            <button mat-mini-fab color="accent" (click)="addToCart(dish)"><mat-icon>plus_one</mat-icon></button>
+        </mat-card-content>
+    </mat-card>
+    }
+</section>

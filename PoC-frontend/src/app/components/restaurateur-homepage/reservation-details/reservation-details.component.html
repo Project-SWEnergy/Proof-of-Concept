@@ -1,0 +1,50 @@
+<div class="details-container">
+    <p class="title" *ngIf="reservationSelected">
+        Prenotazione selezionata: <span class="client-name">{{reservationSelected.username}}</span>
+    </p>
+
+    <div class="reservation-details-card" *ngIf="reservationSelected">
+        <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()" class="reservation-details-form">
+            <mat-form-field>
+                <input matInput [matDatepicker]="picker" formControlName="date"
+                    [value]="selectedDate | date:'yyyy-MM-dd'" readonly>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+
+            <mat-form-field>
+                <input matInput placeholder="Ora" type="time" formControlName="time">
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Stato</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option 
+                        *ngFor="let status of reservationStatusValues" [value]="status">{{ status }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Coperti</mat-label>
+                <input matInput type="number" placeholder="Coperti" formControlName="seats">
+                <mat-error *ngIf="reservationForm.get('seats')?.hasError('minValue')" class="error">
+                    Numero di coperti non valido.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-form-field>
+                <mat-label>Di cui bambini</mat-label>
+                <input matInput type="number" placeholder="Bambini" formControlName="kids">
+                <mat-error *ngIf="reservationForm.get('kids')?.hasError('minValue')" class="error">
+                    Informazione non valida.
+                </mat-error>
+            </mat-form-field>
+
+            <mat-checkbox formControlName="disabled">Richiesta di accessibilità</mat-checkbox>
+
+            <button mat-flat-button color="primary"  type="submit" class="button-flat">Modifica</button>
+        </form>
+
+    </div>
+</div>

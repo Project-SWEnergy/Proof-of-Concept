@@ -1,0 +1,32 @@
+<div class="card">
+	<div class="client-name">{{reservation.username}}</div>
+	<div class="card-data">
+		<div class="reservation-details">
+			<div class="row">
+				<p class="label">Data:</p>
+				<p>{{date}}</p>
+			</div>
+			<div class="row">
+				<p class="label">Ora:</p>
+				<p>{{time}}</p>
+			</div>
+
+			<div class="row">
+				<p class="label">Coperti:</p>
+				<p>{{reservation.seats}}</p>
+			</div>
+		</div>
+		<div class="reservation-details">
+			<div class="row">
+				<p class="label">Stato:</p>
+				<p>{{reservation.status}}</p>
+			</div>
+			<button mat-flat-button color="primary" 
+				class="button-flat" 
+				aria-label="Visualizza dettagli"
+				(click)="showDetails()">
+				Dettagli
+			</button>
+		</div>
+	</div>
+</div>

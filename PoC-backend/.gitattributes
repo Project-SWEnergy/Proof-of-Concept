@@ -1,0 +1,3 @@
+docker-compose.yml merge=ours
+src/db/index.ts merge=ours
+src/db/migrate.ts merge=ours

@@ -1,0 +1,27 @@
+/* Stile CSS per la classe cart-dish-image */
+.cart-dish-image {
+  width: 50px;
+  /* Imposta la larghezza desiderata */
+  height: auto;
+  /* Imposta l'altezza automaticamente per mantenere le proporzioni */
+}
+
+.cart-details {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.title {
+  text-align: center;
+  /* Center the text */
+}
+
+/* styles.css o styles.scss */
+
+
+.card-content {
+  display: flex;
+}

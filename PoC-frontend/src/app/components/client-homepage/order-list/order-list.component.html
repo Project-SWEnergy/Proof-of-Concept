@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-title class = "title">Il mio ordine:</mat-card-title>
+    
+    <mat-card-content>
+        @for (cartDish of cartContent; track $index) {
+        <div class="cart-details">
+            <img [src]="cartDish.image" class="cart-dish-image">
+            {{ cartDish.name }} x {{ cartDish.quantity }}
+            <span>
+                <button mat-mini-fab color="accent" (click)="removeFromCart(cartDish)">-</button>
+                <button mat-mini-fab color="accent" (click)="addToCart(cartDish)">+</button>
+            </span>
+            
+        </div>
+        }
+        
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,24 @@
+<div class="home-restaurateur">
+    <div class="vertical-layout">
+        <app-clock></app-clock>
+        <app-filters></app-filters>
+    </div>
+    
+
+    <div class="cards-container">
+        <p class="title">
+            Prenotazioni di: <span class="selected-date" >{{this.shareDataService.formattedDate}}</span>
+        </p>
+        <div *ngIf="this.shareDataService.showSeparatedBookingBoxes === true">
+            <app-separate-booking-boxes></app-separate-booking-boxes>
+        </div>
+    
+        <div *ngIf="this.shareDataService.showSeparatedBookingBoxes === false">
+            <app-compact-booking-boxes></app-compact-booking-boxes>
+        </div>
+    </div>
+
+    <div>
+        <app-reservation-details></app-reservation-details>
+    </div>
+</div>

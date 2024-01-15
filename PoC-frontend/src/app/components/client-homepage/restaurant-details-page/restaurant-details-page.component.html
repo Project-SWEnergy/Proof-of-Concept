@@ -1,0 +1,17 @@
+<div class="slideshow">
+    <app-slideshow></app-slideshow>
+</div>
+<div class="content">
+    <div class="menu">
+        <app-menu [restaurantId]="restaurantIdParent"></app-menu> 
+    </div>
+    <div class="reservation">
+        <app-reservation-confirmation [restaurantId]="restaurantIdParent"></app-reservation-confirmation>
+    </div>
+    <div class="order-list">
+        <app-order-list></app-order-list>
+    </div>
+</div>
+
+
+

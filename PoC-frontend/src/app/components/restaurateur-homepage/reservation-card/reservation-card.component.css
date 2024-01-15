@@ -1,0 +1,40 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 1em;
+    margin: 1em;
+    width: 300px;
+}
+
+.card-data{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.client-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #673ab7;
+}
+
+.reservation-details {
+    margin-top: 12px;
+}
+
+.label {
+    font-weight: bold;
+    margin-right: 1em;
+}
+
+.button-flat{
+    display: table-cell;
+    max-width: 600px;
+    margin-top: 2em;
+    margin-left: 4em;
+}

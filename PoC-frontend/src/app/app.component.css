@@ -1,0 +1,10 @@
+
+.container {
+    min-height: 100%;
+    position: relative;
+}
+
+.main {
+    padding: 10px;
+    padding-bottom: 6em;
+}

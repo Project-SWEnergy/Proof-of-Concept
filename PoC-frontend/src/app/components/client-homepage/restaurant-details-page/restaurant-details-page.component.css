@@ -1,0 +1,36 @@
+/* Stili per il contenitore principale */
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Due colonne */
+    grid-gap: 20px;
+    /* Spazio tra le celle */
+    grid-template-areas:
+        "menu reservation"
+        "menu orderlist";
+    /* Definizione delle aree */
+    margin-bottom: 1em;
+}
+
+/* Stili per il menu */
+.menu {
+    grid-area: menu;
+    /* Definisce l'area del menu */
+}
+
+/* Stili per la conferma della prenotazione */
+/* Stili per la conferma della prenotazione */
+.reservation {
+    grid-area: reservation;
+    width: 50vh;
+    margin-left: auto;
+}
+
+/* Stili per la lista degli ordini */
+.order-list {
+    grid-area: orderlist;
+    width: 50vh;
+    margin-left: auto;
+}
+
+/* styles.css o styles.scss */

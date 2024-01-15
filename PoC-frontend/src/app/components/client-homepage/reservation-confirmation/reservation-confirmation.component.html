@@ -1,0 +1,38 @@
+<!-- TODO: Modificare il CSS di questo componente-->
+<div>
+  <mat-card class="card">
+    <mat-form-field [color]="colorControl.value!" class="example-form-field">
+      <mat-label>Numero persone</mat-label>
+      <input matInput type="number" [(ngModel)]="numeroPersone" (change)="checkInput('numeroPersone')">
+    </mat-form-field>
+    <span *ngIf="errorNumeroPersone" class="error-message">Il numero di persone non può essere minore o uguale a 0</span>
+    <br>
+    Data e ora:
+    <mat-form-field>
+      <mat-label>Value binding</mat-label>
+      <input matInput [matDatepicker]="picker3" [value]="selectedDate" (dateChange)="onDateChange($event)">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+      <mat-datepicker #picker3></mat-datepicker>
+    </mat-form-field>
+
+
+    <br>
+    Numero seggioloni:
+    <mat-form-field [color]="colorControl.value!" class="example-form-field">
+      <mat-label>Numero seggioloni</mat-label>
+      <input matInput type="number" [(ngModel)]="numeroSeggioloni" (change)="checkInput('numeroSeggioloni')">
+      <span *ngIf="errorNumeroSeggioloni" class="error-message">Il numero di seggioloni non può essere minore o uguale a 0</span>
+
+    </mat-form-field>
+    <br>
+
+    Richiesta di accessibilità:
+
+    <section class="example-section">
+      <mat-checkbox class="example-margin" [(ngModel)]="checked"></mat-checkbox>
+    </section>
+
+    <button mat-raised-button color="primary" (click)="prenota()" [disabled]="!isPrenotaButtonEnabled">Prenota</button>
+  </mat-card>
+</div>

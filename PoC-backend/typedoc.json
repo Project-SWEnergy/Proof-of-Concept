@@ -1,0 +1,28 @@
+{
+	"$schema": "https://typedoc.org/schema.json",
+    "out": "docs",
+	"emit": "docs",
+    "excludeNotDocumented": true,
+	"excludeNotDocumentedKinds": [
+        "Module",
+        "Namespace",
+        "Enum",
+        "Variable",
+        "Interface",
+        //"Constructor",
+        //"Property",
+       // "CallSignature", //
+        "IndexSignature",
+       // "ConstructorSignature",
+        "Accessor",
+   //     "GetSignature",
+        "SetSignature",
+        "TypeAlias",
+        "Reference"
+    ],
+	"navigation": {
+        "includeCategories": true,
+        "includeGroups": true
+    },
+    "categorizeByGroup": true
+}

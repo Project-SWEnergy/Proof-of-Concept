@@ -1,0 +1,15 @@
+<!-- restaurants-list.component.html -->
+<section>
+    <mat-form-field>
+      <mat-label>Cerca Ristorante</mat-label>
+      <input matInput [(ngModel)]="searchText" (input)="filterRestaurants()">
+    </mat-form-field>
+
+    
+<!-- TODO: SISTEMARE CON IL @for AGGIORNATO-->
+    <section class="results">
+      <app-restaurants-list-card *ngFor="let restaurant of restaurantListFiltered" [restaurant]="restaurant">
+      </app-restaurants-list-card>
+    </section>
+  </section>
+  

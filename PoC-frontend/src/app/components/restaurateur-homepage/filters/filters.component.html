@@ -1,0 +1,11 @@
+<mat-calendar class="calendar" [(selected)]="selectedDate"></mat-calendar>
+
+    <div class="row">
+        <p>Visualizzazione separata:</p>
+        <span class="separator"></span>
+        <mat-slide-toggle 
+            [aria-label]="ariaLabelToggle" 
+            [class.toggle-on]="this.shareDataService.showSeparatedBookingBoxes" 
+            [(ngModel)]="this.shareDataService.showSeparatedBookingBoxes"
+        ></mat-slide-toggle>
+    </div>

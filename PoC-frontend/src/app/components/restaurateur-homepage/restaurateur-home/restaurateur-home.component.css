@@ -1,0 +1,30 @@
+.home-restaurateur {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.selected-date {
+    font-size: 18px;
+    font-weight: bold;
+    color: #673ab7;
+}
+.title {
+    font-weight: bold;
+    margin-right: 1em;
+    font-size: 18px
+}
+
+.cards-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 30em 
+}
+
+.vertical-layout{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

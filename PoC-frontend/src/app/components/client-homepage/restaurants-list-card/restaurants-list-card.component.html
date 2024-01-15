@@ -1,0 +1,29 @@
+<mat-card class="listing" [routerLink]="['/restaurant-details-page',restaurant.id]">
+  <mat-card-content class="listing-content">
+    <div class="listing-image">
+      <img mat-card-image class="listing-photo" [src]="this.photoUrl">
+    </div>
+
+    <div class="listing-text">
+      <mat-card-header class="header">
+        <mat-card-title class="listing-heading restaurant-name">{{restaurant.name}}</mat-card-title>
+        <mat-card-subtitle class="listing-tag">Tags: {{restaurant.tags}}</mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-card-content>
+        <!-- Numero di telefono cliccabile -->
+        <p class="listing-telephone-number">
+          Numero di telefono: 
+          <a href="tel:{{restaurant.telephone}}">{{restaurant.telephone}}</a>
+        </p>
+        <!-- Indirizzo cliccabile che apre Google Maps -->
+        <p class="listing-address">
+          Indirizzo: 
+          <a href="https://www.google.com/maps/search/?api=1&query={{restaurant.address}}" target="_blank">{{restaurant.address}}</a>
+        </p>
+        <p class="listing-cost">Costo: &euro;&euro; </p>
+      </mat-card-content>
+
+    </div>
+  </mat-card-content>
+</mat-card>

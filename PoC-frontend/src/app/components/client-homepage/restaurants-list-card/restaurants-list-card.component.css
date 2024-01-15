@@ -1,0 +1,48 @@
+/*.listing {
+    max-width: 400px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  .example-card {
+    max-width: 400px;
+  }*/
+
+
+.listing {
+  max-width: 600px;
+  display: flex;
+  margin-bottom: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.listing-content {
+  display: flex;
+}
+
+.listing-image {
+  flex-shrink: 0;
+  /* L'immagine non si ridurrà */
+  margin-right: 10px;
+  /* Aggiunge spazio tra l'immagine e il testo */
+  max-width: 200px;
+  /* Larghezza massima dell'immagine */
+  max-height: 250px;
+  /* Altezza massima dell'immagine */
+  overflow: hidden;
+  /* Nasconde eventuali parti dell'immagine che eccedono le dimensioni massime */
+  border-radius: 8px;
+}
+
+.restaurant-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #673ab7;
+}

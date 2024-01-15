@@ -1,0 +1,13 @@
+<form class="cerca-citta-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Città</mat-label>
+    <input type="text" placeholder="Scegliene una città" matInput [formControl]="myControl" [matAutocomplete]="auto">
+
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      @for (option of filteredOptions | async; track option) {
+      <mat-option [value]="option">{{option}}</mat-option>
+      }
+    </mat-autocomplete>
+
+  </mat-form-field>
+</form>
